@@ -1,0 +1,106 @@
+Subject: InCity Research Platform - Now Live!
+
+Dear Mobility Lab Directors,
+
+We are pleased to announce that the InCity Research Platform is now live and ready for use.
+
+================================================================================
+SITE ACCESS
+================================================================================
+
+Production Website: https://[your-vercel-url].vercel.app
+Admin Dashboard (CMS): https://[your-vercel-url].vercel.app/studio
+
+================================================================================
+GETTING STARTED
+================================================================================
+
+1. ACCESS THE ADMIN DASHBOARD
+   - Navigate to the /studio URL above
+   - Log in with your Sanity account credentials
+   - If you don't have a Sanity account, create one at sanity.io
+
+2. ADDING CONTENT
+   The CMS allows you to manage three types of content:
+   - People: Team members, faculty, students, and alumni
+   - Publications: Research papers, reports, and academic work
+   - Projects: Research initiatives with data visualizations
+
+3. CMS USER GUIDE
+   We have prepared a comprehensive guide for non-technical staff:
+   Location: docs/CMS_MANUAL.md (in the project repository)
+
+   This guide includes step-by-step instructions for:
+   - Adding new team members
+   - Publishing research papers
+   - Creating projects with charts and visualizations
+
+================================================================================
+KEY FEATURES
+================================================================================
+
+- Responsive design (works on desktop, tablet, and mobile)
+- Accessible interface (WCAG compliant)
+- Real-time content updates via Sanity CMS
+- Data visualizations (bar, line, pie, and area charts)
+- Filterable content lists (by role, theme, document type)
+- SEO-optimized pages
+
+================================================================================
+TECHNICAL DETAILS
+================================================================================
+
+For your records, the platform was built with:
+- Next.js 14 (React framework)
+- Sanity.io (Content Management System)
+- TypeScript (Type-safe code)
+- Tailwind CSS (Styling)
+- Recharts (Data visualizations)
+
+Test Coverage:
+- 144 unit tests (Jest)
+- 126 end-to-end tests (Playwright)
+- All tests passing across Chrome, Firefox, and Mobile
+
+================================================================================
+SUPPORT & DOCUMENTATION
+================================================================================
+
+The following documentation is available in the project repository:
+
+1. README.md - Project overview and quick start guide
+2. docs/CMS_MANUAL.md - CMS user guide for content editors
+3. docs/LAUNCH_CHECKLIST.md - Deployment and configuration steps
+
+================================================================================
+NEXT STEPS
+================================================================================
+
+1. Review the CMS User Guide (docs/CMS_MANUAL.md)
+2. Log into the Admin Dashboard and explore the interface
+3. Begin adding your research content
+4. Reach out if you have any questions or need training
+
+We recommend scheduling a brief 30-minute training session to walk through
+the CMS interface and answer any questions your team may have.
+
+================================================================================
+CONTACT
+================================================================================
+
+For technical support or questions:
+- Email: [development-team@email.com]
+- Response time: Within 24 hours on business days
+
+Thank you for the opportunity to build this platform for the Mobility Lab.
+We look forward to seeing it serve your research community.
+
+Best regards,
+
+The Development Team
+InCity Research Platform Project
+
+--------------------------------------------------------------------------------
+This is an automated handover notification. Please save this email for your
+records and share the CMS access information with authorized team members only.
+--------------------------------------------------------------------------------

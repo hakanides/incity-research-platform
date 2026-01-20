@@ -1,0 +1,118 @@
+Thank you. Since you do not have the data in a structured format (CSV/Excel), we must adjust the CMS Development Phase to prioritize a "High-Efficiency Data Entry Flow". Entering 500 items manually is a significant task; the system must be designed to make this as fast and painless as possible for your non-technical staff.
+
+📘 Project Specification: InCity Research Platform
+
+1. Executive Summary
+A full-stack, research-focused website designed to showcase mobility data, publications, and opportunities.
+
+Primary Goals: Display research impact (Inform) and attract talent/partners (Convert).
+Key Constraint: Non-technical staff will manually input ~500 publications and manage content.
+Key Feature: Interactive data visualizations (Charts/Maps) managed via a CMS.
+2. Technical Architecture (The Stack)
+Frontend (The Head): Next.js 14+ (App Router).
+Reason: Best-in-class performance, SEO, and handles complex interactive libraries easily.
+Backend (The Body): Sanity.io (Recommended) or Strapi.
+Reason: Sanity allows us to build a "Custom Input Interface." Since your staff has to type in 500 items, we can customize the dashboard to be clutter-free and fast.
+Visualization Engine:
+Maps: Mapbox GL JS (Interactive street/transit maps).
+Charts: Recharts (React wrapper for D3.js).
+Hosting: Vercel (Frontend) + Sanity Cloud (Content).
+3. Comprehensive Feature Recipe
+
+A. Public-Facing Pages (Frontend)
+1. Landing Page (Home)
+
+Hero Section: Large background visual (placeholder for now), H1 Headline, two CTA buttons ("Our Research", "Join Us").
+Interactive Hook: A functional "Transit Map" component.
+Logic: Loads a default JSON dataset to show moving lines or heatmaps.
+News Ticker: Auto-pulls the 3 most recent entries from the "News" content type.
+2. Research & Projects Hub
+
+Layout: Masonry grid of Project Cards.
+Card Details: Image, Title, "Status" badge (Active/Completed), and "Theme" tags.
+Search/Filter: Sidebar with checkboxes for Research Themes (Behavioral, Systems, Policy).
+3. Single Project Page
+
+Dynamic Linking: Automatically lists "Team Members" involved (clickable) and "Related Publications" (clickable).
+Data Viz Section: If the admin uploads data for this project, render a Line/Bar chart dynamically.
+4. Publications Database (The Heavy Lifter)
+
+List View: Clean, academic style list (APA/MLA style look).
+Search Bar: Instant text search (Title/Author).
+Filters: Dropdowns for Year, Document Type (Thesis vs. Paper).
+Download: Direct PDF download button or "Read Online" external link.
+5. People & Directory
+
+Sorting: Automatically groups people by "Role" (Faculty first, then Staff, then Students).
+Profile Page: Shows Bio + Headshot.
+Smart Feature: The page must query the database and say: "Show me every Project and Publication where this Person is listed as an Author." (Eliminates double entry).
+B. Administrative Dashboard (The CMS)
+Since we have 500 manual entries, we need to configure the CMS specifically for speed.
+
+1. The "Publication" Input Form
+
+Title: Text field (Required).
+Slug: Auto-generate from Title.
+Authors: "Reference" array. Staff searches a name, clicks it, and it links. They do not type names manually every time.
+Date: Date picker (Defaults to "Today" to save clicks).
+Abstract: Rich Text Editor (supports bold/italic).
+File: Drag-and-drop PDF upload.
+Link: URL field for external DOI.
+2. The "Interactive Data" Input Form
+
+To keep it simple for non-tech staff, we will create a "Chart Builder" object in the CMS.
+Fields:
+Chart Type: Dropdown (Bar, Line, Pie).
+Data: A simple table input (Label | Value).
+Result: Staff types "2020 | 50%" and "2021 | 70%", and the frontend automatically renders the chart.
+4. Data Logic & Schema (The Database)
+We need three primary linked tables (Documents):
+
+Person:
+name (string)
+slug (unique id)
+role (enum: director, staff, student, alumni)
+photo (image)
+bio (block text)
+Publication:
+title (string)
+publishedAt (date)
+authors (array of references to Person)
+file (file)
+category (tag)
+Project:
+headline (string)
+theme (enum: systems, behavior, policy)
+team (array of references to Person)
+chartData (custom object for visualizations)
+5. Development Roadmap (Step-by-Step)
+Sprint 1: The Foundation (Weeks 1-2)
+
+Set up Next.js repo.
+Set up Sanity CMS.
+Task: Program the Schemas (defined above).
+Deliverable: A working URL where you can log in and add a Person.
+Sprint 2: The Core Components (Weeks 3-4)
+
+Build the "Navbar" and "Footer".
+Build the "Card" components (Project Card, Person Card).
+Design Task: Create the placeholder assets (grey geometric headers, default avatar images).
+Sprint 3: The Data Visualizations (Weeks 5-6)
+
+Install recharts and mapbox-gl.
+Build the ChartComponent.js. Connect it to the CMS data.
+Deliverable: A page where you can type numbers in the backend and see a chart appear on the frontend.
+Sprint 4: The Content Marathon (Week 7)
+
+Freeze Code: Stop adding features.
+Manual Entry: Staff begins entering the 500 publications.
+Strategy: Enter "People" first. Then enter "Projects." Then enter "Publications" (so you can link them to the people).
+Sprint 5: Polish & Launch (Week 8)
+
+Implement Search logic.
+Mobile responsiveness check.
+Launch to Vercel.
+Final Checklist
+
+npx create-next-app@latest mobility-site
+npm create sanity@latest
